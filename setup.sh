@@ -46,5 +46,7 @@ echo -e $lg ""
 figlet -f small "Installation"
 echo -e $ye ""
 figlet -f small " Completed "
-chmod 777 ghost-droid.sh
+chmod 777 ghost-droid
 mkdir /sdcard/ghost
+echo " "
+echo -e $ye " Now Just type ghost-droid to start the tool "
