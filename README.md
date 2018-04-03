@@ -8,4 +8,4 @@ chmod 777 setup.sh
 
 ./setup.sh
 
-./ghost-droid.sh
+./ghost-droid
