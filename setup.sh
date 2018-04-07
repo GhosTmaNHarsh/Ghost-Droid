@@ -1,7 +1,7 @@
 lg='\e[1;32m'
 ye='\e[1;33m'
 blue='\e[1;34m'
-re='\[1;31m'
+re='\e[1;31m'
 clear
 echo " "
 echo -e $lg " +-------------------------------------------+"
@@ -27,13 +27,11 @@ if [ "$?" -eq "0" ]
     which msfconsole > /dev/null 2>&1
     echo ""
     sleep 2
- 
  else 
    echo ""
    echo "   [-] Metasploit not found. Installing Metasploit "
-   git clone ,.............
+   git clone https://github.com/GhosTmaNHarsh/metasploit
   sleep 2
-  
 fi
 echo " "
 echo -e $ye "[${re} ∆ ${ye}] This Could take about 2-3 minutes or less"
