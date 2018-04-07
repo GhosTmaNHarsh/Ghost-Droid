@@ -2,10 +2,10 @@
 # Required active internet connection to start the tool
 follow the following steps as it is......
 
-cd Ghost-Droid
+ 1. cd Ghost-Droid
 
-chmod 777 setup.sh
+ 2. chmod 777 setup.sh
 
-./setup.sh
+ 3. ./setup.sh
 
-./ghost-droid
+ 4. ./ghost-droid
