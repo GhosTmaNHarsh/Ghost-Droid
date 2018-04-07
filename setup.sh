@@ -43,7 +43,7 @@ gem install lolcat > /dev/null 2>&1
 echo -e $lg ""
 figlet -f small "Installation"
 figlet -f small " Completed " | lolcat
-chmod 777 ghost-droid.sh
+chmod 777 ghost-droid
 echo -e $blue " "
 echo -n " Press enter to continue............."
 read mm
