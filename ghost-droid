@@ -241,7 +241,7 @@ cd $HOME/Ghost-Droid
 git --hard > /dev/null 2>&1
 git pull > /dev/null 2>&1
 echo " "
-echo "${blue} [ ${re}✔ ${blue}] ${ye}Ghost-Droid Updated........"
+echo -e "${blue} [ ${re}✔ ${blue}] ${ye}Ghost-Droid Updated........"
 
 }
 
