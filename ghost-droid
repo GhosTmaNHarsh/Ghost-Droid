@@ -160,6 +160,7 @@ read name
 
 function listener(){
 
+echo -e $ye " [ ${lg}+${ye} ]${blue} This could take few seconds to start......."
 msfconsole 
 
 }
