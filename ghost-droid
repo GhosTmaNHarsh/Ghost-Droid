@@ -71,7 +71,7 @@ echo " "
 ping -c 1 google.com > /dev/null 2>&1
 if [[ "$?" != 0 ]]
  then
-    echo -e $ye " [-] Checking For Internet:${re} FAILED"
+    echo -e $ye " [-] Internet:${re} FAILED"
     echo ""
     echo -e $lgf " This Script Needs An Active Internet Connection"
     echo ""
@@ -80,7 +80,7 @@ if [[ "$?" != 0 ]]
     sleep 2
     exit
   else
-    echo -e $ye " [√] Checking For Internet:${lg} CONNECTED"
+    echo -e $ye " [√] Internet:${lg} CONNECTED"
     sleep 2
   fi
 
