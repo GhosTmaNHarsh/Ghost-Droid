@@ -239,8 +239,8 @@ figlet -f smmono12 " UPDATE" | lolcat
 echo -e $re " Updating ${lg}Ghost-Droid.......... "
 echo -e $ye " This could take few seconds......"
 cd $HOME/Ghost-Droid
-git --hard > /dev/null 2>&1
-git pull > /dev/null 2>&1
+git --hard
+git pull
 echo " "
 echo -e "${blue} [ ${re}✔ ${blue}] ${ye}Ghost-Droid Updated........"
 
