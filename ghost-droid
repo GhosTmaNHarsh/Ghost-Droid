@@ -60,6 +60,7 @@ echo -e "           ${ye}|-----------------------|"
 echo -e "     ${ye}      |    ${lg}  Ghost-Droid   ${ye}   |"
 echo -n  -e "     ${ye}      @@@@@@@@@@@@@@@@@@@@@@@@@"
 read gar
+
 }
 
 function checkinternet(){
@@ -239,7 +240,7 @@ figlet -f smmono12 " UPDATE" | lolcat
 echo -e $re " Updating ${lg}Ghost-Droid.......... "
 echo -e $ye " This could take few seconds......"
 cd $HOME/Ghost-Droid
-git --hard
+git reset --hard
 git pull
 echo " "
 echo -e "${blue} [ ${re}✔ ${blue}] ${ye}Ghost-Droid Updated........"
