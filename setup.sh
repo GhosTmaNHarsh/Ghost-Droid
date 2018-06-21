@@ -31,7 +31,10 @@ if [ "$?" -eq "0" ]
    echo ""
    echo "   [-] Metasploit not found. Installing Metasploit "
    git clone https://github.com/GhosTmaNHarsh/metasploit
-  sleep 2
+   cd metasploit
+   chmod 777 metasploit.sh
+   ./metasploit.sh
+   cd ..
 fi
 echo " "
 echo -e $ye "[${re} ∆ ${ye}] This Could take about 2-3 minutes or less"
