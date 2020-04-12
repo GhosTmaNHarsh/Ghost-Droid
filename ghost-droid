@@ -1,4 +1,4 @@
-# Created by Harsh Mishra
+# Created by Sachin Kinha
 
 # Tool : Ghost-Droid
 
@@ -55,7 +55,7 @@ echo -e "   ${ye}        @                       @"
 echo -e "           @                       @"
 echo -e "           @@@@@@@@@@@@@@@@@@@@@@@@@"
 echo -e "     ${ye}      |  ${re}    (GhosTmaN)     ${ye}  |"
-echo -e "   $ye        | ${cy}Author : ${bf}Harsh Mishra ${ye}|   ${ye} $ver "
+echo -e "   $ye        | ${cy}Author : ${bf}Sachin kinha ${ye}|   ${ye} $ver "
 echo -e "           ${ye}|-----------------------|"
 echo -e "     ${ye}      |    ${lg}  Ghost-Droid   ${ye}   |"
 echo -n  -e "     ${ye}      @@@@@@@@@@@@@@@@@@@@@@@@@"
