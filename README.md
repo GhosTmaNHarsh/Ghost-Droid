@@ -9,3 +9,5 @@ follow the following steps as it is......
  3. ./setup.sh
 
  4. ./ghost-droid
+
+Changes made
